@@ -137,6 +137,7 @@ And the results of scores with different weights on different models look like t
 
 ![SOCRES](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/f1s%20with%20different%20weights.png)
 
+The F1 score is decreasing as the weight on XGboost model reduces.
 Since F1 Score is the average of recall and precision, I choosed the weights that have the highest F1 score.
 
 The ROC_AUC result
