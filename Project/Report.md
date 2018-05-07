@@ -88,7 +88,7 @@ RCS = 0.7741157556270096
 
 F1 score = 0.7197309417040358
 
-![SVM](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/SVC(C%3D1%2C%20c.png)
+![SVM](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/SVC.png)
 
 ### Random Forest
 
