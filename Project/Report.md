@@ -8,7 +8,7 @@ Data prepocessing
 -
 Let's first have a look at the raw data
 
-![lol_origin](https://www.zybuluo.com/static/img/my_head.jpg)
+![lol_origin](PHBS_TQFML/Project/raw data.jpg)
 
 The data are special because it contains time series data within a single sample.
 
