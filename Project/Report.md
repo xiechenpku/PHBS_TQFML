@@ -57,8 +57,10 @@ Feature Selection
 
 ![PCA]()
 
-Metric Results for Different Models
+Apply Different Models
 -
+Before applying any model, we used **GridSearchCV** to find out the optimal hyper parameters in some range. 
+
 ### Logistic Regression
 
 ### SVM
@@ -68,3 +70,11 @@ Metric Results for Different Models
 ### XGboost
 
 ### Proba Weighted Models
+Since we use different data to train different models due to the limited computational power, the 'Majority Voting' in the book can not be applied. Thus, we add up the weighted average probability of different models through **.predict_proba()** method.
+
+And the results of scores with different weights on different models look like this.
+
+Since F1 Score is the average of recall and precision, I choosed the weights that have the highest F1 score.
+
+The ROC_AUC result
+
