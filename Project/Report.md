@@ -8,13 +8,13 @@ Data prepocessing
 -
 Let's first have a look at the raw data
 
-![lol_origin](PHBS_TQFML/Project/raw data.jpg)
+![lol_origin](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/raw%20data.jpg)
 
 The data are special because it contains time series data within a single sample.
 
 For example, Let's look at **lol['bKills'].values[1]**
 
-![lol_bKills]()
+![lol_bKills](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/kill%20data.png)
 
 And there are many features have the same situation. In order to extract these cummulated variables at 15mins, we define a function.
 
@@ -41,17 +41,17 @@ And here is one drawback: Since we do not have any infomation about **new** hero
 
 the clean data look like this:
 
-![clean_data]()
+![clean_data](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/clean_data.png)
 
 samples are relatively balanced:
 
-![pie]
+![pie](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/pie.png)
 
 Feature Selection
 -
 ### Feature Importance ( through Random Forest)
 
-![feature_importance]()
+![feature_importance](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/.png)
 
 ### PCA
 
