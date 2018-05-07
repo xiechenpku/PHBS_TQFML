@@ -16,7 +16,7 @@ For example, Let's look at **lol['bKills'].values[1]**, which means the kill tha
 
 ![lol_bKills](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/kill%20data.png)
 
-And there are many features have the same situation. In order to extract these cummulated variables at 15mins, we define a function. Roughly speaking, the function goes through all individual kill and check if the time is higher than 15.
+And there are many features have the same structure. In order to extract these cummulated variables at 15mins, we define a function. Roughly speaking, the function goes through all individual kill and check if the time is higher than 15.
 
         def get_data15(feature):
         info = [x[2:-2] for x in feature]
