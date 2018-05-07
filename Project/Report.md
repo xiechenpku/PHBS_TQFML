@@ -49,13 +49,14 @@ samples are relatively balanced:
 
 Feature Selection
 -
+
 ### Feature Importance ( through Random Forest)
 
-![feature_importance](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/.png)
+![feature_importance](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/feature_importance.png)
 
 ### PCA
 
-![PCA]()
+![PCA](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/PCA%20explained%20variance%20ratio.png)
 
 Apply Different Models
 -
@@ -63,18 +64,72 @@ Before applying any model, we used **GridSearchCV** to find out the optimal hype
 
 ### Logistic Regression
 
+Accuracy of trainning = 0.8547056617922759
+
+Accuracy of testing = 0.7305336832895888 
+
+PRS = 0.7456964006259781 
+
+RCS = 0.7660771704180064 
+
+F1 score = 0.7557494052339413
+
+![LR](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/lr2.png)
+
 ### SVM
+
+accuracy of trainning =  0.8453318335208099
+
+accuracy of testing =  0.6719160104986877
+
+PRS = 0.672486033519553
+
+RCS = 0.7741157556270096
+
+F1 score = 0.7197309417040358
+
+![SVM](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/SVC(C%3D1%2C%20c.png)
 
 ### Random Forest
 
+accuracy of trainning =  0.775403074615673
+
+accuracy of testing =  0.7235345581802275
+
+PRS = 0.7554858934169278
+
+RCS = 0.77491961414791
+
+F1 score = 0.7650793650793651
+
+![RF](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/RandomFore.png)
+
+
 ### XGboost
+
+accuracy of trainning =  0.775403074615673
+
+accuracy of testing =  0.7235345581802275
+
+PRS = 0.7116182572614108
+
+RCS = 0.8271704180064309
+
+F1 score = 0.7650557620817844
+
+
+![xg](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/XGBClassif.png)
 
 ### Proba Weighted Models
 Since we use different data to train different models due to the limited computational power, the 'Majority Voting' in the book can not be applied. Thus, we add up the weighted average probability of different models through **.predict_proba()** method.
 
 And the results of scores with different weights on different models look like this.
 
+![SOCRES](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/f1s%20with%20different%20weights.png)
+
 Since F1 Score is the average of recall and precision, I choosed the weights that have the highest F1 score.
 
 The ROC_AUC result
+
+![roc](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/ROC_AUC.png)
 
