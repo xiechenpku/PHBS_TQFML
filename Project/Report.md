@@ -19,21 +19,21 @@ For example, Let's look at **lol['bKills'].values[1]**, which means the kill tha
 And there are many features have the same structure. In order to extract these cummulated variables at 15mins, we define a function. Roughly speaking, the function goes through all individual kill and check if the time is higher than 15.
 
         def get_data15(feature):
-        info = [x[2:-2] for x in feature]
-        data15 = []
-        for y in info:
-            y = y.split('], [')
-            j = 0
-            for z in y:
-                if z.strip() =='':
-                    break
-                else:
-                    z=z.split(',')
-                    n =float(z[0])
-                    if n < 15.0 :
-                        j = j + 1
-            data15.append(j)
-        return data15
+                info = [x[2:-2] for x in feature]
+                data15 = []
+                for y in info:
+                    y = y.split('], [')
+                    j = 0
+                    for z in y:
+                        if z.strip() =='':
+                            break
+                        else:
+                            z=z.split(',')
+                            n =float(z[0])
+                            if n < 15.0 :
+                                j = j + 1
+                    data15.append(j)
+                return data15
 
 After that, we need to deal with nominal and ordinal features. In my opinion, there are talented and normal players. But we can not rank heroes(Champs). Given that Faker, the world's top Middle lane player, choose a hero, I do not think I can beat him whatever hero I choose. Therefore, we treat player as ordinal variables by applying **get_dummies**. Meanwhile, Champs were transformed into nominal numbers by using **LabelEncoder**
 
