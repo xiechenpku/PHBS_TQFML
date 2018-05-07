@@ -56,7 +56,7 @@ Feature Selection
 
 I plot 30 most important features. we can see that the most important features are goldifference(economy), and then are enemies killed or tower destroyed, and then are champs. And finally, individual player help predict the result,too. All of these are quiet intuitive.
 
-For example, South Korean is considered the best in League of Legend, and both Wolf and Band are top South Korean player.
+For example, South Korea is considered the best in League of Legend, and both Wolf and Band are top South Korean player.
 
 ### PCA
 
