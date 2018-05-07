@@ -12,11 +12,11 @@ Let's first have a look at the raw data
 
 The data are special because it contains time series data within a single sample.
 
-For example, Let's look at **lol['bKills'].values[1]**
+For example, Let's look at **lol['bKills'].values[1]**, which means the kill that blue team obtains.
 
 ![lol_bKills](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/kill%20data.png)
 
-And there are many features have the same situation. In order to extract these cummulated variables at 15mins, we define a function.
+And there are many features have the same situation. In order to extract these cummulated variables at 15mins, we define a function. Roughly speaking, the function goes through all individual kill and check if the time is higher than 15.
 
         def get_data15(feature):
         info = [x[2:-2] for x in feature]
@@ -35,11 +35,11 @@ And there are many features have the same situation. In order to extract these c
             data15.append(j)
         return data15
 
-After that, we need to deal with nominal and ordinal features. In my opinion, there are talented and normal pro players. But we can not rank heroes(Champs). Given that Faker, the world's top Middle lane player, choose a hero, I do not think I can beat him whatever hero I choose. Therefore, we treat player as ordinal variables by applying **get_dummies**. Meanwhile, Champs were transformed into nominal numbers by using **LabelEncoder**
+After that, we need to deal with nominal and ordinal features. In my opinion, there are talented and normal players. But we can not rank heroes(Champs). Given that Faker, the world's top Middle lane player, choose a hero, I do not think I can beat him whatever hero I choose. Therefore, we treat player as ordinal variables by applying **get_dummies**. Meanwhile, Champs were transformed into nominal numbers by using **LabelEncoder**
 
 And here is one drawback: Since we do not have any infomation about **new** heroes and players, we can not use the model when **new palyers** join the league or **new Champs** were created. 
 
-the clean data look like this:
+The clean data look like this:
 
 ![clean_data](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/clean_data.png)
 
@@ -54,9 +54,15 @@ Feature Selection
 
 ![feature_importance](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/feature_importance.png)
 
+I plot the 30 most important features. we can see that the most important features are goldifference(economy), and then are enemies killed or tower destroyed, and then are champs. And finally, individual player help predict the result,too. All of these are quiet intuitive.
+
+For example, South Korean is considered the best in League of Legend, and both Wolf and Band are top South Korean player.
+
 ### PCA
 
 ![PCA](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/PCA%20explained%20variance%20ratio.png)
+
+I also use PCA to reduce dimensionality for later use in SVM model.
 
 Apply Different Models
 -
@@ -77,6 +83,8 @@ F1 score = 0.7557494052339413
 ![LR](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/lr2.png)
 
 ### SVM
+
+SVM requires lots of computation, so for simplicity, I train SVM model with the data that have been dimensional reduced by PCA method.
 
 accuracy of trainning =  0.8453318335208099
 
@@ -107,6 +115,7 @@ F1 score = 0.7650793650793651
 
 ### XGboost
 
+
 accuracy of trainning =  0.775403074615673
 
 accuracy of testing =  0.7235345581802275
@@ -121,6 +130,7 @@ F1 score = 0.7650557620817844
 ![xg](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/XGBClassif.png)
 
 ### Proba Weighted Models
+
 Since we use different data to train different models due to the limited computational power, the 'Majority Voting' in the book can not be applied. Thus, we add up the weighted average probability of different models through **.predict_proba()** method.
 
 And the results of scores with different weights on different models look like this.
@@ -132,4 +142,5 @@ Since F1 Score is the average of recall and precision, I choosed the weights tha
 The ROC_AUC result
 
 ![roc](https://github.com/xiechenpku/PHBS_TQFML/blob/master/Project/images/ROC_AUC.png)
+
 
